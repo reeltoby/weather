@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> &#127746; Contact</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+</head>
+
+
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+<div class="container-fluid">
+    <a class="navbar-brand" href="home.html"><img src="images/weatherguys.png" alt="companylogo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html"> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="journey.html"> Our Journey </a>
+        </li>
+	      <li class="nav-item">
+          <a class="nav-link" href="map.htm"> MAP </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="contact.html"> Contact </a>
+        </li>
+      </ul>
+    </div>
+</div>
+</nav>
+
+  <div class="container-fluid padding">
+    <div class="row welcome text-center">
+      <div class="col-12">
+        <h3 class="display-4"> Contact Form</h3>
+      </div>
+      <div class="col-12">
+        <h2 class="lead">If you have any questions on our project, please send us a message by filling in the below form. <br> We will try our best to answer all your inquries!</h2>
+      </div>
+    </div>
+  </div>  
+  <section>
+    <div class="container">
+      <!-- Submit to formspree API-->
+      <form action="https://formspree.io/f/moqyqgqd" method="POST" id="my-form">
+
+        <div class="form-group">
+          <label for="firstName"> First Name </label>
+          <input type="text" id="firstName" name="firstName">
+        </div>
+        <div class="form-group">
+          <label for="lastName"> Last Name </label>
+          <input type="text" id="lastName" name="lastName">
+        </div>
+        <div class="form-group">
+          <label for="email"> Email </label>
+          <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber"> Phone Number</label>
+          <input type="tel" id="phoneNumber" name="phoneNumber">
+        </div>
+
+        <div class="form-group">
+          <label for="message"> Message </label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        </div>
+
+        <button type="submit"> Submit </button> 
+
+      </form>
+    </div>
+
+    <div id="status">  </div>
+
+  </section>
+  <script src="./main.js"></script>
+
+<footer>
+<div class="container-fluid padding">
+<div class="row text-center">
+  <div class="col-md-6">
+    <img src="images/weatherguys.png" alt="companylogo">
+    <hr class="light"> 
+  </div>
+  <div class="col-md-6">
+    <img src="images/fleminglogo.png" alt="collegelogo">
+    <hr class="light"> 
+  </div>
+  <div class="col-12">
+    <hr class="light">
+    <h5>&copy; 2021 GEOM 99 Group 5</h5>
+  </div>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
+
+
+
+

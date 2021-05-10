@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> &#127746; Weather Guys</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+<div class="container-fluid">
+    <a class="navbar-brand" href="home.html"><img alt ='weather' src="images/weatherguys.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="home.html"> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="journey.html"> Our Journey </a>
+        </li>
+	      <li class="nav-item">
+          <a class="nav-link" href="map.htm"> MAP </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html"> Contact </a>
+        </li>
+      </ul>
+    </div>
+</div>
+</nav>
+<!--- Image Slider -->
+<div id="slides" class="carousel slide" data-ride="carousel">
+<ul class="carousel-indicators">
+  <li data-target="#slides" data-slide-to="0" class="active"></li>
+  <li data-target="#slides" data-slide-to="1"></li>
+  <li data-target="#slides" data-slide-to="2"></li> 
+</ul> 
+<div class="carousel-inner">
+  <div class="carousel-item active">
+    <img alt= "weatherBackground" src="images/weatherbackground.png">
+    <div class="carousel-caption">
+      <h1 class="display-2"> GEOM99 WEB GIS DEVELOPMENT</h1>
+      <h3>View weather conditions at hiking trail locations in Ontario</h3>
+    </div>
+  </div>
+  <div class="carousel-item">
+    <img alt= "pressureBackground" src="images/pressurebackground.png">
+  </div>
+  <div class="carousel-item">
+    <img alt= "cloudBackground" src="images/cloudbackground.png">
+  </div>
+</div> 
+</div>
+
+<div class="container-fluid padding">
+<div class="row welcome text-center">
+  <div class="col-12">
+    <h1 class="display-4"> Our Problem Statement</h1>
+  </div>
+  <hr>
+  <div class="col-12">
+    <h2 class="lead">Identify your ideal state or outcome from completing the work  </h2>
+    <p>Users can view a live weather map and see Ontario hiking trail locations on the same map. The user can therefore more easily make decisions on where to go if they're planning on hiking </p>
+  </div>
+  <div class="col-12">
+    <h2 class="lead"> Document the reality of how things are done/ managed now </h2>
+    <p>Live weather maps (precipitation, temperature, etc.) and hiking trail locations in Ontario are available but not within the same map</p>
+  </div>
+  <div class="col-12">
+    <h2 class="lead"> What are the consequences if your solution is not made/ nothing is changed?</h2>
+    <p> Since weather maps and hiking trails in Ontario are not in the same location the user's experience is more cumbersome when planning their excursion.</p>
+  </div>
+  <div class="col-12">
+    <h2 class="lead">Clearly state the proposal solutions in the context of the end user </h2>
+    <p>A web map getting data from OpenWeatherMap API to be displayed with Ontario hiking trail locations.</p>
+  </div>
+</div>
+</div>
+
+<!--- Meet the team -->
+<div class="container-fluid padding">
+<div class="row welcome text-center">
+  <div class="col-12">
+    <h1 class="display-4"> Meet the Team </h1>
+  </div>
+  <!--Horizontal rule-->
+  <hr> 
+</div>
+</div>
+
+<!--- Cards -->
+<div class="container-fluid padding">
+<div class="row padding">
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="card">
+      <img  alt= "aaron" class="card-img-top" src= "images/aaron.jpg">
+      <div class="card-body">
+        <h3 class="card-title text-center"> Aaron Jutzi</h3>
+        <h3 class="card-text text-center"> GIS & Web Developer </h3>
+        <p class="card-text text-center">Aaron is currently studying GIS (Applications Specialist) at Fleming College, 
+          and previously studied Geomatics at Carleton University. In his spare time Aaron enjoys exercising,
+        reading books and meditating.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="card">
+      <img class="card-img-top" src= "images/hyerinm.jpg" alt= "hyerin">
+      <div class="card-body">
+        <h3 class="card-title text-center"> Hyerin Mun </h3>
+        <h3 class="card-text text-center"> Web & App Designer </h3>
+        <p class="card-text text-center"> Hyerin Mun is currently a GIS-Application Specialist at Fleming College. 
+          She recently graudated from University of Saskatchewan with a BSc. in Geology. 
+          In her free time, she loves playing LOL and reading financial books.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="card">
+      <img class="card-img-top" src= "images/team3.png" alt= "kim">
+      <div class="card-body">
+        <h3 class="card-text text-center"> Kimberly Hansen</h3>
+        <h3 class="card-text text-center"> GIS & Web Developer </h3>
+        <p class="card-text text-center"> Recently graduated from the Ecosystem Management Technician program at Fleming College, Kimberly is working towards
+          becoming a GIS Applications Specialist. When she isn't coding, Kimberly can be found outside gardening, hiking with her husky or doing yoga.
+	 </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="card">
+      <img class="card-img-top" src= "images/team1.png" alt= "toby">
+      <div class="card-body">
+        <h3 class="card-text text-center"> Toby Agomuo</h3>
+        <h3 class="card-text text-center"> GIS & Web Developer </h3>
+        <p class="card-text text-center">Toby currently is a student of the GIS-Application Specialist program at Fleming college
+	 and previously studied geoinformatics at the University of Lagos. Toby is an avid traveler and a lover of history.
+	 </p>
+      </div>
+    </div>
+  </div>
+</div> 
+</div>
+
+<!--- Software used -->
+<div class="container-fluid padding">
+  <div class="row welcome text-center">
+    <div class="col-12">
+      <h1 class="display-4"> Software Used </h1>
+    </div>
+    <!--Horizontal rule-->
+    <hr> 
+  </div>
+  </div>
+
+<!--- Four Columns Section -->
+<!--https://fontawesome.com/v4.7.0/icons/-->
+<div class="container-fluid padding">
+<div class="row text-center padding">
+  <div class="col">
+    <i class="fas fa-code"></i>
+    <h3>HTML5</h3>
+    <p> Built with the latest version of HTML, HTML5</p>
+  </div>
+  <div class="col">
+    <i class="fab fa-css3"></i>
+    <h3>CSS3</h3>
+    <p> Built with the latest version of CSS, CSS3</p>
+  </div>
+  <div class="col">
+    <i class="fas fa-bold"></i>
+    <h3>BOOTSTRAP</h3>
+    <p> Built with the latest version of bootstrap</p>
+  </div>
+  <div class="col">
+    <i class="fa fa-leaf"></i>
+    <h3>LEAFLET</h3>
+    <p> Built with the latest version of leaflet</p>
+  </div>
+  <div class="col">
+    <i class="fa fa-map-marker"></i>
+    <h3>MAPBOX</h3>
+    <p> Built with the latest version of mapbox</p>
+  </div>
+</div>
+<hr class="my-4">
+</div>
+
+<!--- Footer -->
+<footer>
+<div class="container-fluid padding">
+<div class="row text-center">
+  <div class="col-md-6">
+    <img src="images/weatherguys.png" alt= "weatherguys">
+    <hr class="light"> 
+  </div>
+  <div class="col-md-6">
+    <img src="images/fleminglogo.png" alt= "fleming">
+    <hr class="light"> 
+  </div>
+  <div class="col-12">
+    <hr class="light">
+    <h5>&copy; 2021 GEOM 99 Group 5</h5>
+  </div>
+</div>
+</div>
+</footer>
+
+
+
+</body>
+</html>
+
+
+
+
+<!-- View in Browser: Drew's #1 Trending YouTube Tutorial -->
+
+<!-- End View in Browser: Drew's #1 Trending YouTube Tutorial -->
+
+

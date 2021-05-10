@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> &#127746; Map </title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+		<link href="style.css" rel="stylesheet">
+	
+			<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+		  crossorigin=""/>
+	  
+		 <!-- Make sure you put this AFTER Leaflet's CSS -->
+		 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+		   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+		   crossorigin=""></script>
+
+        <!-- Load Esri Leaflet from CDN -->
+		  <script src="https://unpkg.com/esri-leaflet@3.0.1/dist/esri-leaflet.js"
+          integrity="sha512-JmpptMCcCg+Rd6x0Dbg6w+mmyzs1M7chHCd9W8HPovnImG2nLAQWn3yltwxXRM7WjKKFFHOAKjjF2SC4CgiFBg=="
+          crossorigin=""></script>
+          
+        <!-- Load Leaflet MarkerCluster and Esri Leaflet Cluster from CDN -->
+        <link rel="stylesheet" type="text/css"
+          href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"
+          integrity="sha512-BBToHPBStgMiw0lD4AtkRIZmdndhB6aQbXpX7omcrXeG2PauGBl2lzq2xUZTxaLxYz5IDHlmneCZ1IJ+P3kYtQ=="
+          crossorigin="">
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"
+          integrity="sha512-RLEjtaFGdC4iQMJDbMzim/dOvAu+8Qp9sw7QE4wIMYcg2goVoivzwgSZq9CsIxp4xKAZPKh5J2f2lOko2Ze6FQ=="
+          crossorigin="">
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"
+          integrity="sha512-MQlyPV+ol2lp4KodaU/Xmrn+txc1TP15pOBF/2Sfre7MRsA/pB4Vy58bEqe9u7a7DczMLtU5wT8n7OblJepKbg=="
+          crossorigin=""></script>
+        <script src="https://unpkg.com/esri-leaflet-cluster@2.1.0/dist/esri-leaflet-cluster.js"
+          integrity="sha512-fEdNFHisleVtEYdLhW4Z2RsR7TN6hLutE/+O4D+skfTNY2rlHm8HOZARPWkdrFFy/+i2KjFxcZAKTUWaVfbV0g=="
+          crossorigin=""></script>
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		
+	<!-- Load Esri Leaflet Geocoder from CDN -->
+		
+  		<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@3.0.0/dist/esri-leaflet-geocoder.css"
+    		integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+   	 	crossorigin="">
+  		<script src="https://unpkg.com/esri-leaflet-geocoder@3.0.0/dist/esri-leaflet-geocoder.js"
+    		integrity="sha512-vZbMwAf1/rpBExyV27ey3zAEwxelsO4Nf+mfT7s6VTJPUbYmD2KSuTRXTxOFhIYqhajaBU+X5PuFK1QJ1U9Myg=="
+    		crossorigin=""></script>
+		<style>  
+			 #background {
+             	background-color: #C6E2E9;
+                height: 100%;
+                width: 100%;
+                }
+             #mapid { 
+		height: 100%;
+                width: 75%;
+			 }
+			 #temp {
+				 width:20%;
+                		 float: left;
+				 position: absolute; 
+				 top: 190px; 
+				 right: 15px; 
+				 text-align: right;
+			 }
+			 #temperature {
+				width:25%;
+				 font-size: 35;
+                 		text-align: right;
+                 		float: left;
+				 position: absolute; 
+				 top: 5px; 
+				 right: 15px; 
+				 text-align: right;
+			 }
+             #transbox {
+ 				margin: 10px;
+  				background-color: #E2F0F4;
+  				border: 1px  #1f3631;
+  				float: left;
+				  width: 40%;
+				  position: absolute; 
+				 top: 90px; 
+				 right: 15px; 
+				 text-align: right;
+  				
+			 }
+
+			 #start {
+				width:20%;
+                		 float: left;
+				 position: absolute; 
+				 top: 100px; 
+				 right: 15px; 
+				 text-align: right;
+			 }
+		
+			/* #mapid { height: 480px; } */
+		 </style> 
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="home.html"><img alt="weatherguys" src="images/weatherguys.png"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+				  <ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+					  <a class="nav-link" href="home.html"> Home</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="journey.html"> Our Journey </a>
+					</li>
+					  <li class="nav-item">
+					  <a class="nav-link active" href="map.htm"> MAP </a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="contact.html"> Contact </a>
+					</li>
+				  </ul>
+				</div>
+			</div>
+			</nav>
+	
+		<div id="background">
+			<div id="mapid"></div>
+			<script type="text/javascript" src="map.js" defer></script>
+			<div>
+				<p id="start"></p>
+				</div>
+			<div>
+				<p id="temp"></p></div>
+				<div id= "transbox">
+					<div id="temperature"></div>
+				</div>
+			</div>
+		
+				
+			  
+			  
+		
+	</body>
+</html>
