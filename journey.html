@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> &#127746; Our Journey</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+<div class="container-fluid">
+    <a class="navbar-brand" href="home.html"><img alt="weatherguys" src="images/weatherguys.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html"> Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="journey.html"> Our Journey </a>
+        </li>
+	      <li class="nav-item">
+          <a class="nav-link" href="map.htm"> MAP </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html"> Contact </a>
+        </li>
+      </ul>
+    </div>
+</div>
+</nav>
+<div class="container-sm border ">
+  <div class="row welcome text-center">
+    <div class="col-12">
+  <h2 class="text-justify">The workflow: Our Journey</h2></div>
+  <div class="col-12"><p class="text-primary"> <h4 class="text-justify">Main Approach: </h4></p></div>
+  <p class="text-justify">For our group, it was imperative that we tackled all aspects of this project as a team, while also playing to the strength 
+  of each group member. In order to achieve our set goals, we kicked off our project with a team meeting, discussing components that would need to be created, configured, tweaked or added to the project. We also discussed extensively on the the tools needed to create usable solutions that addresses our problem. We created a github repository where each group member could commit changes to the map and the dashboard. </p>
+
+  
+  <div class="col-12"><p class="text-success" ><h4 class="text-justify" > March 24-30: </h4></p></div>
+  <p class="text-justify">In the beginning stages of our project we mainly focused on getting acquainted with 
+    Ontario trail data and the OpenWeatherMap API. We weren't sure yet of how we would reference the trail data. 
+    We decided that using ESRI feature services made the most sense for our project, because of ESRI feature 
+    services high compatibility with leaflet. During this time (which we would later change) we were hosting 
+    the Ontario trail data as data hosted on ArcGIS online (downloaded and hosted on one of our profiles). 
+    At this point we configured our map to display pop-ups with information when you click on a trail point or line.
+    The first challenge with OpenWeatherMap API was getting to display live weather tile layers (namely temperature, precipitation, pressure, and wind) to display on a web map. 
+    It was determined that to display a weather map tile in leaflet, you need to reference the url in a leaflet tileLayer
+    layer object. We also wanted to give the user the option to choose between different weather layers, so to do
+    that we made variables that contained the tile layers, and then added those variables to scripted control panel.
+  </p>  
+
+  <div class="col-12"><p class="text-info"> <h4 class="text-justify">March 31 - April 6: </h4></p></div>
+  <p class="text-justify">During this time it was brought to our attention by our Professor, Shawn Morgan, that
+    Ontario Trail data was hosted on an ArcGIS REST server (<a href="url">https://ws.lioservices.lrc.gov.on.ca/arcgis1071a/rest/services/LIO_OPEN_DATA/LIO_Open04/MapServer)</a>.
+    We decided to switch to using this server to reference our data because this server has more longevity 
+    than our Fleming ArcGIS online accounts, and the data is regularly updated. The only difference in referencing this
+    data was that the field names were different, so we had to change the field names in our pop-up box script lines.
+    During this time we also added marker clustering to the trailhead points, and a search bar for general locations using
+     ESRI geocoding (we would later add trail layers to the search bar).
+    We also had a major breakthrough this week in regards to fetching location specific weather data on click from
+    OpenWeatheMap API. Fecthing OpenWeatherMap API involves using an OpenWeatherMap API url with specified parameters.
+    One of the parameters is latitude and longitude. Using the Leaflet 'on click' method we get the latitude and
+    longitude when a user clicks a location (or point marker). The latitude and longitude data is then saved to a local variable
+    which is then passed into the API url which is set up to take the latidue and longitude variables as url parameters.
+    Using jQuery, the OpenWeatherMap API url fetches weather data pertaining to those specific coordinates. 
+    The OpenWeatherMap API url returns a JSON file. At this point the data is being displayed as an alert, but we
+    want to display the data in the html (either beside or below the map, which we do later on).
+
+  </p>
+  
+  <div class="col-12"><p class="text-warning"><h4 class="text-justify"> April 7-13: </h4></p></div>
+  <p class="text-justify">During this time we made significant upgrades to our weather data display. Instead of
+    displaying the data in an alert box, the data is now displayed below the map as an html element. The data
+    is also parsed so the only temperature, temperature feels like, weather description, visibility, and wind gust.
+    We also added a larger temperature display on the right side underneath the map. In order to display this weather
+    data we needed to first understand how the JSON data was structured and how to display it in an html element.
+    The JSON file needs to first be converted into a string and parsed in order to be able to display properly in 
+    the html element. Once that is done, specific elements can be extracted and displayed in the html document
+    by referencing the stringified parsed JSON object. The temperature, for example is called by "obj.main.temp"
+    where obj is the stringified parsed JSON object, and main and temp are respectively parent and child features
+    in the JSON file (i.e. temp is the current temperature value, and it is within the "main" feature).
+    We also added a grey marker icon for when the user clicks on an empyt part of the map.
+  </p>
+  
+  <div class="col-12"><p class="text-secondary"><h4 class="text-justify"> April 14-20: </h4></p></div>
+  <p class="text-justify">During this time we worked to clean up the project, and also try to add any additional features or 
+    changes to the map. One such change was the trail data display. We wanted to display to try to display the trail 
+    data in an html element rather than as a pop-up. This however proved a more arduous challenge than anticipated, and we
+    were not able to complete this succesffully. We believe the ArcGIS API for JavaScript could accomplish this task,
+    and if given more time we believe we would have figured out, using ArcGIS API for Javascript, how to display trail feature information in an html 
+    element. During this week we changed the layout so that the map was on the left side, and the weather information
+    was on the right side. A major perk to doing this is that the display looks much better on mobile devices. We also
+    tried to display graphic weather icons underneath temperature display, but didn't end up having enough time to
+    make it work.
+  </p>  
+
+<div class="col-12"><p class="text-danger"> <h4 class="text-justify"> Data Acquisition: </h4></p></div>
+  <p class="text-justify">We acquired our data from several open data portals. Most coding solutions were gotten from several websites, links and youtube
+    tutorials. Our base map belongs to OpenStreetMap. 
+	  The other layers and materials used are listed in the table below</p>
+<table class="table table-striped">
+<thead>
+      <tr>
+        <th>Layer Name</th>
+        <th>Source/Link</th>
+        <th>Description</th>
+       
+      </tr>
+    </thead>
+<tbody>
+      <tr>
+        <td class="text-justify">Open Weather MAP</td>
+        <td class="text-justify">https://home.openweathermap.org/</td>
+        <td class="text-justify">Open weather map provides highly recognisable weather maps and data for the world. <br>
+        We relied on their data for the current weather forecast of our trail locations.</td>
+      </tr>
+</tbody>
+<tbody>
+      <tr>
+        <td class="text-justify">MapBox (Open Street Map) </td>
+        <td class="text-justify">https://mapbox.com </td>
+        <td class="text-justify">The open street map provides a base map for all layers to be displayed effectively.<br>
+        We chose the base map good enough to display all layers we added without colour conflicts</td>
+      </tr>
+</tbody>
+<tbody>
+      <tr>
+        <td class="text-justify">Leaflet JavaScript  </td>
+        <td class="text-justify">https://leafletjs.com/ </td>
+        <td class="text-justify"> Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps<br>
+        All map layers, tiles and features were embedded on the base map using Leaflet Javascrip API</td>
+      </tr>
+</tbody>
+<tbody>
+      <tr>
+        <td class="text-justify">Trail head  </td>
+        <td class="text-justify">https://ws.lioservices.lrc.gov.on.ca/arcgis1071a/rest/
+        services/LIO_OPEN_DATA/LIO_Open04/MapServer/20</td>
+        <td class="text-justify">This data containing trail heads in Ontario was gotten from the government of Ontraio website.<br>
+        The dtrail heads data, represented on the map as clustered markers displays detailed information about the trail head once clicked.</td>
+      </tr>
+</tbody>
+<tbody>
+      <tr>
+        <td class="text-justify">Trail Paths  </td>
+        <td class="text-justify">https://ws.lioservices.lrc.gov.on.ca/arcgis1071a/rest/
+        services/LIO_OPEN_DATA/LIO_Open04/MapServer/19</td>
+        <td class="text-justify">This data containing trail paths in Ontario was gotten from the website of the Ontario government.<br>
+        Once clicked, the path information pops up, giving more information about the current path surface material. </td>
+      </tr>
+</tbody>
+
+
+
+
+</table></div></div>
+<!--- Footer -->
+<footer>
+<div class="container-fluid padding">
+<div class="row text-center">
+  <div class="col-md-6">
+    <img alt="weatherguys" src="images/weatherguys.png">
+    <hr class="light"> 
+  </div>
+  <div class="col-md-6">
+    <img alt="fleming" src="images/fleminglogo.png">
+    <hr class="light"> 
+  </div>
+  <div class="col-12">
+    <hr class="light">
+    <h5>&copy; 2021 GEOM 99 Group 5</h5>
+  </div>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
